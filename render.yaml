@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: hoopsnsoles
+    env: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: node server.js
+    autoDeploy: true
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        value: admin@hoopsnsoles.org
+      - key: ADMIN_PASSWORD
+        value: change_me_now
+      - key: DB_FILE
+        value: /data/hoopsnsoles.db
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1

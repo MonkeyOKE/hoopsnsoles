@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<section class="contact">
+    <h1>Contact Us</h1>
+    <p>If you have any questions or would like to get in touch, please send us a message. We'll respond as soon as we can.</p>
+
+    <% if (message) { %>
+    <p class="message"><%= message %></p>
+    <% } %>
+
+    <form action="/contact" method="POST" class="contact-form">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div>
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" id="subject" required>
+        </div>
+        <div>
+            <label for="message">Message</label>
+            <textarea name="message" id="message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<%- include('partials/footer') %>

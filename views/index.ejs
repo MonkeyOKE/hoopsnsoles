@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+<section class="hero">
+  <h1>Move good shoes from closets to kids</h1>
+  <p>We collect gently-used athletic shoes from the Greater Vancouver community and donate them to youth who need them. Join us!</p>
+  <a href="/donate" class="button">Donate Shoes</a>
+  <a href="/get-shoes" class="button">Request Shoes</a>
+</section>
+<section class="stats">
+  <h2>Our Impact</h2>
+  <ul>
+    <li><strong><%= stats.pairs_collected %></strong> pairs collected</li>
+    <li><strong><%= stats.pairs_placed %></strong> pairs placed</li>
+    <li><strong><%= stats.schools_served %></strong> schools served</li>
+  </ul>
+</section>
+<%- include('partials/footer') %>

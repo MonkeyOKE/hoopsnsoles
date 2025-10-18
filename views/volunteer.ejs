@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+<h1>Volunteer with Us</h1>
+<p>Want to help collect, sort, or distribute shoes? Fill out the form below to volunteer.</p>
+<% if (message) { %>
+  <div class="message"><%= message %></div>
+<% } %>
+<form action="/volunteer" method="POST" class="form">
+  <label>Name: <input type="text" name="name" required></label>
+  <label>Email: <input type="email" name="email" required></label>
+  <label>Phone: <input type="text" name="phone" required></label>
+  <label>Area of interest:
+      <select name="area" required>
+        <option value="collection">Collection</option>
+        <option value="sorting">Sorting</option>
+        <option value="distribution">Distribution</option>
+        <option value="events">Events</option>
+      </select>
+  </label>
+  <label>Message: <textarea name="message"></textarea></label>
+  <button type="submit">Submit Volunteer Form</button>
+</form>
+<%- include('partials/footer') %>

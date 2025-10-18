@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+<h1>Donate Your Shoes</h1>
+<p>We accept basketball shoes, runners, and athletic shoes in all sizes.</p>
+<% if (message) { %>
+  <div class="message"><%= message %></div>
+<% } %>
+<form action="/donate" method="POST" class="form">
+  <label>Name: <input type="text" name="name" required></label>
+  <label>Email: <input type="email" name="email" required></label>
+  <label>Phone: <input type="text" name="phone" required></label>
+  <label>Address: <input type="text" name="address" required></label>
+  <label>Shoe size: <input type="text" name="size" required></label>
+  <label>Type of shoes: <input type="text" name="type" required placeholder="e.g. basketball, running"></label>
+  <label>Message: <textarea name="message"></textarea></label>
+  <button type="submit">Submit Donation</button>
+</form>
+<%- include('partials/footer') %>

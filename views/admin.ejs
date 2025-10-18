@@ -1,0 +1,92 @@
+<%- include('partials/header') %>
+
+<section class="admin">
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, <%= adminEmail %>!</p>
+
+    <h2>Update Impact Stats</h2>
+    <form action="/admin/stats" method="POST" class="stats-form">
+        <div>
+            <label for="pairs_collected">Pairs Collected</label>
+            <input type="number" name="pairs_collected" id="pairs_collected" value="<%= stats.pairs_collected %>" required>
+        </div>
+        <div>
+            <label for="pairs_placed">Pairs Placed</label>
+            <input type="number" name="pairs_placed" id="pairs_placed" value="<%= stats.pairs_placed %>" required>
+        </div>
+        <div>
+            <label for="schools_served">Schools Served</label>
+            <input type="number" name="schools_served" id="schools_served" value="<%= stats.schools_served %>" required>
+        </div>
+        <button type="submit">Update Stats</button>
+    </form>
+
+    <h2>Donations</h2>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Size</th><th>Type</th><th>Message</th><th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% donations.forEach(function(donation) { %>
+            <tr>
+                <td><%= donation.name %></td>
+                <td><%= donation.email %></td>
+                <td><%= donation.phone %></td>
+                <td><%= donation.address %></td>
+                <td><%= donation.size %></td>
+                <td><%= donation.type %></td>
+                <td><%= donation.message %></td>
+                <td><%= new Date(donation.created_at).toLocaleString() %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <h2>Requests</h2>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Size</th><th>Type</th><th>Message</th><th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% requests.forEach(function(request) { %>
+            <tr>
+                <td><%= request.name %></td>
+                <td><%= request.email %></td>
+                <td><%= request.phone %></td>
+                <td><%= request.address %></td>
+                <td><%= request.size %></td>
+                <td><%= request.type %></td>
+                <td><%= request.message %></td>
+                <td><%= new Date(request.created_at).toLocaleString() %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <h2>Volunteers</h2>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Name</th><th>Email</th><th>Phone</th><th>Area</th><th>Message</th><th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% volunteers.forEach(function(vol) { %>
+            <tr>
+                <td><%= vol.name %></td>
+                <td><%= vol.email %></td>
+                <td><%= vol.phone %></td>
+                <td><%= vol.area %></td>
+                <td><%= vol.message %></td>
+                <td><%= new Date(vol.created_at).toLocaleString() %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</section>
+
+<%- include('partials/footer') %>
